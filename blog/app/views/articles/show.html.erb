@@ -1,49 +1,69 @@
 <%- model_class = Article -%>
+
+
+
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
-  <dd><%= @article.title %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:text) %>:</strong></dt>
-  <dd><%= @article.text %></dd>
-</dl>
+<div class="row">
 
-<h2>Comments</h2>
+  <div class="col-md-8">
+
+    <dl class="">
+      <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+      <dd><%= @article.title %></dd>
+      <dt><strong><%= model_class.human_attribute_name(:text) %>:</strong></dt>
+      <dd><%= @article.text %></dd>
+    </dl>
+
+  </div>
+
+  <div class="col-md-4">
+
+    <h3>Add a comment:</h3>
+    <%= form_for([@article, @article.comments.build]) do |f| %>
+    <p>
+      <%= f.label :commenter %><br>
+    <p class="textfield"><%= f.text_field :commenter %></p>
+    </p>
+    <p>
+      <%= f.label :body %><br>
+    <p class="textfield"><%= f.text_area :body %></p>
+    </p>
+    <p class="textfield">
+      <%= f.submit :class => 'btn btn-primary'  %>
+    </p>
+    <% end %>
+
+
+  </div>
+
+</div>
+
+
+<h3>Comments</h3>
 <% @article.comments.each do |comment| %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
+<p>
+  <strong>Commenter:</strong>
+  <%= comment.commenter %>
+</p>
 
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
+<p>
+  <strong>Comment:</strong>
+  <%= comment.body %>
+</p>
 <% end %>
 
-<h2>Add a comment:</h2>
-<%= form_for([@article, @article.comments.build]) do |f| %>
-<p>
-  <%= f.label :commenter %><br>
-  <%= f.text_field :commenter %>
-</p>
-<p>
-  <%= f.label :body %><br>
-  <%= f.text_area :body %>
-</p>
-<p>
-  <%= f.submit %>
-</p>
-<% end %>
+
+
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
-              articles_path, :class => 'btn btn-default'  %>
+articles_path, :class => 'btn btn-primary'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_article_path(@article), :class => 'btn btn-default' %>
+edit_article_path(@article), :class => 'btn btn-primary' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              article_path(@article),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+article_path(@article),
+:method => 'delete',
+:data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+:class => 'btn btn-danger' %>
