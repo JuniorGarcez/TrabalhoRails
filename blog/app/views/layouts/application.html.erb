@@ -41,7 +41,7 @@
 <div class="row head">
   <div class="col-md-2"><%= image_tag("book.png",width: "100px")%></div>
   <div class="col-md-8">NOME</div>
-  <div class="col-md-2 textfield"><%=text_field :title, :class => 'form-control', placeholder: "buscar"%></div>
+  <div class="col-md-2"><%=text_field :busca, :class => 'form-control'%></div>
 </div>
 <div class="row head">
   <div class="col-md-2"><%= link_to "HOME", articles_path%></div>
@@ -49,7 +49,12 @@
   <div class="col-md-2">BOTÃO3</div>
   <div class="col-md-2">BOTÃO4</div>
   <div class="col-md-2">BOTÃO5</div>
-  <div class="col-md-2">BOTÃO6</div>
+  <div class="col-md-2 social_media">
+    <%= link_to image_tag("fb.png", width: "30px"), "https://www.facebook.com/" %>
+    <%= link_to image_tag("ig.png", width: "30px"), "https://www.instagram.com/" %>
+    <%= link_to image_tag("tw.png", width: "30px"), "https://twitter.com/" %>
+    <%= link_to image_tag("www.png", width: "30px"), "https://google.com/" %>
+  </div>
 </div>
 
   <div class="container">
