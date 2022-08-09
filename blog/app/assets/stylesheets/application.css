@@ -32,9 +32,9 @@ footer{
 margin: 0;
 display: flex;
 justify-content: center;
-border: none;
 width: 100%;
 height: 100%;
+margin-bottom: 20px;
 }
 .head{
   padding: 20px;
@@ -42,4 +42,8 @@ height: 100%;
 .social_media{
   display: flex;
   gap: 30px;
+}
+.head{
+  display: flex;
+  align-items: flex-end;
 }
