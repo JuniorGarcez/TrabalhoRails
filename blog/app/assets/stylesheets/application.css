@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+ body, td{
+   background-color: #069;
+   color: white;
+ }
+.container{
+   background-color: #069;
+ }
+.btn, btn-primary{
+  border: solid 1px;
+  color: white;
+  margin: 5px;
+}
+.btn-danger{
+  background-color: red;
+}
+footer{
+  text-align: center;
+}
+.page-header{
+margin: 0;
+display: flex;
+justify-content: center;
+border: none;
+width: 100%;
+height: 100%;
+}
+.textfield{
+  color: black;
+}
+.head{
+  padding: 20px;
+}

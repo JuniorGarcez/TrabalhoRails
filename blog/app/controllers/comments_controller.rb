@@ -3,6 +3,10 @@ class CommentsController < ApplicationController
 http_basic_authenticate_with name: "Admin", password: "root",
 only: [:destroy]
 
+  def new
+    @comment = Comment.new
+  end
+
   def destroy
     @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
