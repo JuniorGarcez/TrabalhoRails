@@ -22,6 +22,8 @@
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_article_path(article), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      article_path(article), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       article_path(article),
                       :method => :delete,
@@ -36,3 +38,4 @@
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_article_path,
             :class => 'btn btn-primary' %>
+<br><br>
