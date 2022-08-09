@@ -14,11 +14,8 @@
  *= require_self
  */
  body, td{
-   background-color: #069;
-   color: white;
  }
 .container{
-   background-color: #069;
  }
 .btn, btn-primary{
   border: solid 1px;
@@ -39,9 +36,10 @@ border: none;
 width: 100%;
 height: 100%;
 }
-.textfield{
-  color: black;
-}
 .head{
   padding: 20px;
+}
+.social_media{
+  display: flex;
+  gap: 30px;
 }
