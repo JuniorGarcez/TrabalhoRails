@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  http_basic_authenticate_with name: "Admin", password: "root", except: [:index, :show]
+  skip_before_action :require_login , only:[:index, :show]
 
   def destroy
      @article = Article.find(params[:id])
