@@ -1,6 +1,7 @@
 <%- model_class = Article -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <%= session[:current_user_id] %>
 </div>
 
     <p><%=@artilce_ini%>..<%=@article_fim%> total de <%=@articles_count%> artigos.</p>
