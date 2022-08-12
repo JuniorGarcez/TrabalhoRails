@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 
   before_action :require_login
 
+  helper_method :current_user
+
   private
 
   def require_login
@@ -13,6 +15,10 @@ class ApplicationController < ActionController::Base
       flash[:error] = "Você precisa iniciar a sessão"
       redirect_to articles_path # halts request cycle
     end
+  end
+
+  def current_user
+    User.find(session[:current_user_id])
   end
 
 end
