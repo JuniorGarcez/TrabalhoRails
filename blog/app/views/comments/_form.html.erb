@@ -1,19 +1,6 @@
 <%= form_for([@article, @article.comments.build]) do |f| %>
 
-<% if @comment.errors.any? %>
-<div style=color:black; id="error_expl" class="panel panel-danger">
-  <div style=color:black; class="panel-heading">
-    <h3 style=color:black;  class="panel-title"><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h3>
-  </div>
-  <div style=color:black;  class="panel-body">
-    <ul>
-      <% @comment.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-</div>
-<% end %>
+<%= render "autentication", resource: @commnet %>
 
 <p>
   <%= f.label :commenter %><br>

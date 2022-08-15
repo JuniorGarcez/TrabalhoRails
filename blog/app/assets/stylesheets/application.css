@@ -21,6 +21,7 @@
   border: solid 1px;
   color: white;
   margin: 5px;
+  border-radius: 5px;
 }
 .btn-danger{
   background-color: red;
@@ -37,10 +38,14 @@ margin-bottom: 20px;
 }
 .head{
   padding: 20px;
+  flex-wrap:wrap;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 .social_media{
   display: flex;
   gap: 30px;
+  justify-content: space-around;
 }
 .head{
   display: flex;
@@ -52,11 +57,11 @@ margin-bottom: 20px;
   gap: 20px;
   font-family:monospace;
 }
-.account{
+.account, .user{
   display: flex;
   flex-direction: row;
+  align-items: flex-end;
   justify-content: flex-end;
   gap: 10px;
   padding: 10px;
-  margin-right: 20px;
 }

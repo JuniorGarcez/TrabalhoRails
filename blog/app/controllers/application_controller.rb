@@ -6,19 +6,24 @@ class ApplicationController < ActionController::Base
 
   before_action :require_login
 
-  helper_method :current_user
+  helper_method :current_user, :validate_form
 
   private
 
   def require_login
     if session[:current_user_id].blank?
       flash[:error] = "Você precisa iniciar a sessão"
-      redirect_to articles_path # halts request cycle
+      redirect_to new_login_path
     end
   end
 
   def current_user
-    User.find(session[:current_user_id])
+  User.find(session[:current_user_id]) if session[:current_user_id]
+  #User.find_by(id: session[:current_user_id])
+  end
+
+  def validate_form
+
   end
 
 end

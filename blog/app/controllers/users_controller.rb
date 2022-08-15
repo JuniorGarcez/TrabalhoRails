@@ -22,11 +22,11 @@ class UsersController < ApplicationController
     redirect_to articles_path
     else
     render 'new'
-  end
+    end
   end
 
-    private
-    def user_params
-      params.require(:user).permit(:name,:password,:mail)
-    end
+  private
+  def user_params
+    params.require(:user).permit(:name,:password,:mail)
+  end
 end

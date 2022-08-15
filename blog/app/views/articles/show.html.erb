@@ -23,41 +23,42 @@
     <%= form_for([@article, @article.comments.build]) do |f| %>
     <p>
       <%= f.label :commenter %><br>
-    <p class="textfield"><%= f.text_field :commenter %></p>
+      <p class="textfield"><%= f.text_field :commenter %></p>
     </p>
     <p>
       <%= f.label :body %><br>
-    <p class="textfield"><%= f.text_area :body %></p>
+      <p class="textfield"><%= f.text_area :body %></p>
     </p>
     <p class="textfield">
       <%= f.submit :class => 'btn btn-primary'  %>
     </p>
     <% end %>
 
-
   </div>
 
 </div>
-<p>Created by </p><%= current_user.name %>
 
-<h3>Comments</h3>
-<% @article.comments.each do |comment| %>
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
-</p>
+<h3>Comentários</h3>
+<% if @article.comments.size > 0%>
+  <% @article.comments.each do |comment| %>
+    <p>
+    <strong><%= comment.commenter %></strong>
+    </p>
 
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
+    <p>
+      <%= comment.body %>
+    </p>
+  <% end %>
 <% end %>
-
 
 
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
 articles_path, :class => 'btn btn-primary'  %>
+
+<% if current_user %>
+<% if @article.user_id == current_user.id %>
+<% else %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
 edit_article_path(@article), :class => 'btn btn-primary' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -65,3 +66,5 @@ article_path(@article),
 :method => 'delete',
 :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
 :class => 'btn btn-danger' %>
+<% end %>
+<% end %>
