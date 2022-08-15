@@ -58,8 +58,8 @@
 
     <div class="col-md-2 account">
       <div class="user">
-        <%if current_user%>
-        <strong><%= current_user.name %></strong>
+        <%if current_user %>
+        <strong><%= current_user.name.titleize %></strong>
         <%end%>
       </div>
       <div class="user">

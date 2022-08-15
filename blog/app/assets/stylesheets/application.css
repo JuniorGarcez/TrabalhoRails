@@ -20,7 +20,6 @@
 .btn, btn-primary{
   border: solid 1px;
   color: white;
-  margin: 5px;
   border-radius: 5px;
 }
 .btn-danger{
