@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   before_action :require_login
 
-  helper_method :current_user, :validate_form
+  helper_method :current_user
 
   private
 
@@ -20,10 +20,6 @@ class ApplicationController < ActionController::Base
   def current_user
   User.find(session[:current_user_id]) if session[:current_user_id]
   #User.find_by(id: session[:current_user_id])
-  end
-
-  def validate_form
-
   end
 
 end
